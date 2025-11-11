@@ -1,6 +1,6 @@
-// tailwind.config.js
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+// tailwind.config.js (ESM)
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     container: {
       center: true,

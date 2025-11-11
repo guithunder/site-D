@@ -89,8 +89,8 @@ const Hero = () => {
             className="text-lg md:text-xl mb-6 font-medium max-w-2xl"
             style={{ color: colors.textoEscuro }}
           >
-            Use o Testify para corrigir gabaritos de múltipla escolha em segundos
-            usando apenas a câmera do seu celular.
+            Use o Testify para corrigir gabaritos de múltipla escolha em
+            segundos usando apenas a câmera do seu celular.
           </p>
         </div>
 
@@ -108,10 +108,16 @@ const Hero = () => {
               style={{ backgroundColor: colors.textoClaro }}
             >
               <Smartphone size={48} style={{ color: colors.desabilitado }} />
-              <p className="text-lg font-semibold" style={{ color: colors.desabilitado }}>
+              <p
+                className="text-lg font-semibold"
+                style={{ color: colors.desabilitado }}
+              >
                 Mock-up do App em Ação
               </p>
-              <p className="text-sm text-center" style={{ color: colors.desabilitado }}>
+              <p
+                className="text-sm text-center"
+                style={{ color: colors.desabilitado }}
+              >
                 (Interface minimalista e intuitiva)
               </p>
             </div>
@@ -138,9 +144,16 @@ const Download = () => {
     "flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-bold text-lg transition-transform duration-200 shadow-md";
 
   return (
-    <section id="download" className="py-12" style={{ backgroundColor: colors.principalClara }}>
+    <section
+      id="download"
+      className="py-12"
+      style={{ backgroundColor: colors.principalClara }}
+    >
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8" style={{ color: colors.textoEscuro }}>
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-8"
+          style={{ color: colors.textoEscuro }}
+        >
           Baixe Agora
         </h2>
 
@@ -148,8 +161,12 @@ const Download = () => {
           {/* Android ativo */}
           <a
             href="#"
+            aria-label="Baixar aplicativo Testify para Android (arquivo .apk)"
             className={`${baseButtonStyle} w-full sm:w-auto`}
-            style={{ backgroundColor: colors.principalEscura, color: colors.textoClaro }}
+            style={{
+              backgroundColor: colors.principalEscura,
+              color: colors.textoClaro,
+            }}
           >
             <Bot size={20} />
             <span>Baixar para Android (.apk)</span>
@@ -158,7 +175,11 @@ const Download = () => {
           {/* iOS desabilitado */}
           <div
             className={`${baseButtonStyle} w-full sm:w-auto opacity-70 cursor-not-allowed`}
-            style={{ backgroundColor: colors.desabilitado, color: colors.textoClaro, boxShadow: "none" }}
+            style={{
+              backgroundColor: colors.desabilitado,
+              color: colors.textoClaro,
+              boxShadow: "none",
+            }}
             aria-disabled="true"
           >
             <Apple size={20} />
@@ -182,7 +203,10 @@ const TutorialStep = ({ icon: Icon, title, description }) => (
       <Icon size={20} style={{ color: colors.textoClaro }} />
     </div>
     <div>
-      <h3 className="text-lg font-semibold" style={{ color: colors.principalEscura }}>
+      <h3
+        className="text-lg font-semibold"
+        style={{ color: colors.principalEscura }}
+      >
         {title}
       </h3>
       <p className="text-sm" style={{ color: colors.textoEscuro }}>
@@ -194,16 +218,26 @@ const TutorialStep = ({ icon: Icon, title, description }) => (
 
 const Tutorial = () => {
   return (
-    <section id="tutorial" className="py-12" style={{ backgroundColor: colors.fundo }}>
+    <section
+      id="tutorial"
+      className="py-12"
+      style={{ backgroundColor: colors.fundo }}
+    >
       <div className="container mx-auto px-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8" style={{ color: colors.principalEscura }}>
+        <h2
+          className="text-2xl md:text-3xl font-bold text-center mb-8"
+          style={{ color: colors.principalEscura }}
+        >
           Como Usar
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Vídeo placeholder */}
           <div>
-            <h3 className="text-xl font-bold mb-4" style={{ color: colors.textoEscuro }}>
+            <h3
+              className="text-xl font-bold mb-4"
+              style={{ color: colors.textoEscuro }}
+            >
               Demonstração em Vídeo
             </h3>
 
@@ -213,7 +247,10 @@ const Tutorial = () => {
             >
               <div
                 className="absolute inset-0 flex flex-col items-center justify-center"
-                style={{ backgroundColor: colors.desabilitado, color: colors.textoClaro }}
+                style={{
+                  backgroundColor: colors.desabilitado,
+                  color: colors.textoClaro,
+                }}
               >
                 <BookOpen size={48} />
                 <p className="mt-2 text-lg">Placeholder do Vídeo Tutorial</p>
@@ -223,7 +260,10 @@ const Tutorial = () => {
 
           {/* Tutorial escrito */}
           <div>
-            <h3 className="text-xl font-bold mb-6" style={{ color: colors.textoEscuro }}>
+            <h3
+              className="text-xl font-bold mb-6"
+              style={{ color: colors.textoEscuro }}
+            >
               Tutorial Escrito (Para Professores)
             </h3>
 
@@ -256,9 +296,18 @@ const Tutorial = () => {
    ----------------------- */
 const Footer = () => {
   return (
-    <footer className="py-6" style={{ backgroundColor: colors.principalEscura, color: colors.textoClaro }}>
+    <footer
+      className="py-6"
+      style={{
+        backgroundColor: colors.principalEscura,
+        color: colors.textoClaro,
+      }}
+    >
       <div className="container mx-auto px-6 text-center">
-        <p className="text-sm">&copy; 2024 Testify - Um Projeto de Extensão UNINASSAU.</p>
+        <p className="text-sm">
+          © {new Date().getFullYear()} Testify - Um Projeto de Extensão
+          UNINASSAU.
+        </p>
       </div>
     </footer>
   );
@@ -273,7 +322,10 @@ export const App = () => {
     <>
       <style>{customStyles}</style>
 
-      <div className="font-sans antialiased" style={{ backgroundColor: colors.fundo }}>
+      <div
+        className="font-sans antialiased"
+        style={{ backgroundColor: colors.fundo }}
+      >
         <Header />
 
         {/* O main recebe padding-top para não ficar atrás do header fixo */}
