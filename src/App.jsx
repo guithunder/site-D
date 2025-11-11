@@ -211,18 +211,20 @@ const Tutorial = () => (
             Demonstração em Vídeo
           </h3>
           <div className="video-box" style={{ paddingBottom: "56.25%" }}>
-            <div
-              className="video-overlay"
+            <iframe
+              title="Vídeo Tutorial Testify"
+              src="https://www.youtube.com/embed/50qu96dvhH8?si=AcFhSwoU2kRpiohn"
               style={{
-                backgroundColor: colors.desabilitado,
-                color: colors.textoClaro,
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
               }}
-            >
-              <BookOpen size={48} />
-              <p style={{ marginTop: ".5rem", fontSize: "1.125rem" }}>
-                Placeholder do Vídeo Tutorial
-              </p>
-            </div>
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
         </div>
         <div>
