@@ -1,6 +1,5 @@
-import tailwind from "@tailwindcss/postcss";
-import autoprefixer from "autoprefixer";
-
+// Pós-migração para Sass puro: PostCSS não é necessário.
+// Mantemos o arquivo vazio para evitar erros de resolução.
 export default {
-  plugins: [tailwind(), autoprefixer()],
+  plugins: [],
 };

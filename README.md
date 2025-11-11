@@ -1,14 +1,13 @@
 <div align="center">
 	<h1>Testify – Landing Page</h1>
-	<p>Aplicação React + Vite com Tailwind CSS v4 para divulgação do app Testify.</p>
+	<p>Aplicação React + Vite estilizada com Sass (sem Tailwind).</p>
 </div>
 
 ## Tecnologias
 
 - React 19
 - Vite 7
-- Tailwind CSS 4 (pipeline nova `@import "tailwindcss"`)
-- PostCSS + Autoprefixer
+- Sass (`.scss`)
 - ESLint 9 (flat config)
 - Lucide Icons
 
@@ -36,44 +35,53 @@ Saída gerada em `dist/`.
 src/
 	main.jsx         # Ponto de entrada React
 	App.jsx          # Componente principal / seções da landing
-	index.css        # Importa Tailwind (v4) + estilos globais opcionais
-postcss.config.js  # Plugins PostCSS (tailwind + autoprefixer)
-tailwind.config.js # Configuração de conteúdo e tema
+	index.scss       # Estilos globais + utilitários Sass do projeto
 ```
 
-## Tailwind CSS v4
+Arquivos de configuração relevantes:
 
-Estamos usando Tailwind 4: em vez de `@tailwind base; @tailwind components; @tailwind utilities;` utilizamos uma única linha:
-
-```css
-@import "tailwindcss";
+```
+vite.config.js     # Config padrão Vite + React
+eslint.config.js   # ESLint flat config
+postcss.config.js  # Mantido vazio (plugins: []) para evitar erros de resolução
 ```
 
-Isso evita que as diretivas `@tailwind` vazem para o build final. Caso seu `dist/assets/index-*.css` apareça apenas com as diretivas cruas, verifique:
+## Estilos com Sass
 
-1. Dependências: `tailwindcss` e `@tailwindcss/postcss` instaladas (já estão no `package.json`).
-2. `postcss.config.js` contendo:
-   ```js
-   import tailwind from "@tailwindcss/postcss";
-   import autoprefixer from "autoprefixer";
-   export default { plugins: [tailwind(), autoprefixer()] };
-   ```
-3. Arquivo de entrada (`src/index.css`) usando `@import "tailwindcss";`.
-4. O caminho `src/index.css` está realmente importado em `main.jsx`.
+Todos os utilitários que antes vinham do Tailwind foram substituídos por classes semânticas definidas em `src/index.scss`.
+Exemplos de classes disponíveis:
 
-Se tudo estiver correto, rodar `npm run build` deve gerar um CSS expandido (sem diretivas). O arquivo enorme contendo muitas variáveis CSS e camadas `@layer` é esperado no Tailwind 4 – ele expõe design tokens via `@layer theme` e propriedades registradas (`@property`).
+- Layout: `container`, `section`, `section-hero`, `main-content`
+- Header: `app-header`, `header-row`, `brand`, `spin-slow`
+- Hero: `hero-grid`, `mockup-wrap`, `phone-mockup`, `phone-inner`, `notch`
+- Download: `btns`, `btn`, `btn-primary`, `btn-disabled`, `heading-2`
+- Tutorial: `grid-2`, `tutorial-step`, `icon-circle`, `video-box`, `video-overlay`
+- Footer: `app-footer`, `text-sm`
 
-## Acessibilidade & Perfis
+Breakpoints usados (aprox. equivalentes ao sm/md/lg):
 
-Pontos básicos já seguidos:
+```scss
+$sm: 640px; // sm
+$md: 768px; // md
+$lg: 1024px; // lg
+```
 
-- Ícones com propósito semântico onde necessário (`aria-label` nos botões de download)
-- Contraste de cores revisado manualmente para leitura.
+As cores principais continuam centralizadas no objeto `colors` dentro do `App.jsx`. Se preferir, podemos movê-las para variáveis Sass (ex.: `$primary`, `$muted`, etc.) para evitar estilos inline. Posso fazer essa troca em seguida, se quiser.
+
+## Nota sobre Tailwind removido
+
+- Todas as dependências e diretivas do Tailwind foram removidas. O arquivo `postcss.config.js` permanece no repo apenas com `plugins: []` para o Vite não acusar erro ao procurar uma configuração.
+- Se ainda houver um `tailwind.config.js` antigo no diretório, ele não é mais usado e pode ser apagado com segurança.
+
+## Acessibilidade
+
+- Ícones com propósito semântico e `aria-label` nos botões de download
+- Contraste de cores revisado manualmente
 
 Melhorias futuras sugeridas:
 
-- Adicionar testes de acessibilidade (ex.: axe-core) em CI
-- Adicionar dark mode (tokens adicionais no `theme`)
+- Mover as cores para variáveis Sass e habilitar dark mode
+- Adicionar testes de acessibilidade (axe-core) em CI
 - Componentizar seções (ex.: `components/`)
 
 ## Scripts Disponíveis
@@ -91,4 +99,4 @@ Projeto acadêmico/exemplo. Ajuste a licença conforme necessário.
 
 ---
 
-Se tiver dúvidas ou quiser adicionar novas seções, abra uma issue ou continue a conversa. :)
+Se quiser que eu mova as cores para Sass e limpe arquivos legados automaticamente, é só pedir.

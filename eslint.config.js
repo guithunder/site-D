@@ -35,7 +35,7 @@ export default defineConfig([
   },
   // Tratar arquivos de configuração como ambiente Node para evitar 'module is not defined'
   {
-    files: ["tailwind.config.js", "vite.config.js", "eslint.config.js"],
+    files: ["vite.config.js", "eslint.config.js"],
     languageOptions: {
       globals: { ...globals.node },
     },

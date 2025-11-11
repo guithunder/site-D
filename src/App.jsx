@@ -1,6 +1,5 @@
 // src/App.jsx
 import React from "react";
-// Ícones (lucide-react)
 import {
   Atom,
   Smartphone,
@@ -41,98 +40,81 @@ const customStyles = `
    HEADER
    - fixo no topo; dá offset para o main via padding-top
    ----------------------- */
-const Header = () => {
-  return (
-    <header
-      className="fixed top-0 left-0 w-full shadow-md z-50"
-      style={{ backgroundColor: colors.principalClara }}
-    >
-      <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center">
-        <div className="flex items-center space-x-3">
-          <Atom
-            className="w-8 h-8 animate-spin-slow"
-            style={{ color: colors.principalEscura }}
-          />
-          <span
-            className="text-2xl font-extrabold tracking-wide"
-            style={{ color: colors.textoEscuro }}
-          >
-            Testify
-          </span>
-        </div>
+const Header = () => (
+  <header
+    className="app-header"
+    style={{ backgroundColor: colors.principalClara }}
+  >
+    <div className="container header-row">
+      <div className="brand">
+        <Atom
+          className="spin-slow"
+          style={{ color: colors.principalEscura }}
+          size={32}
+        />
+        <span style={{ color: colors.textoEscuro, fontWeight: 800 }}>
+          Testify
+        </span>
       </div>
-    </header>
-  );
-};
+    </div>
+  </header>
+);
 
 /* -----------------------
    HERO
    - remove min-h-screen; usa padding adequado
    - limita largura do mockup e do conteúdo
    ----------------------- */
-const Hero = () => {
-  return (
-    <section
-      className="pt-28 pb-12 md:pt-36 md:pb-20"
-      style={{ backgroundColor: colors.fundo }}
-    >
-      <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        {/* Conteúdo */}
-        <div className="text-center md:text-left">
-          <h1
-            className="text-3xl md:text-5xl font-black mb-4 leading-tight"
-            style={{ color: colors.principalEscura }}
-          >
-            Chega de Corrigir Provas Manualmente.
-          </h1>
-          <p
-            className="text-lg md:text-xl mb-6 font-medium max-w-2xl"
-            style={{ color: colors.textoEscuro }}
-          >
-            Use o Testify para corrigir gabaritos de múltipla escolha em
-            segundos usando apenas a câmera do seu celular.
-          </p>
-        </div>
-
-        {/* Mockup */}
-        <div className="flex justify-center md:justify-end">
+const Hero = () => (
+  <section
+    className="section section-hero"
+    style={{ backgroundColor: colors.fundo }}
+  >
+    <div className="container hero-grid">
+      <div className="text-center md-text-left">
+        <h1 className="title-xl" style={{ color: colors.principalEscura }}>
+          Chega de Corrigir Provas Manualmente.
+        </h1>
+        <p className="lead" style={{ color: colors.textoEscuro }}>
+          Use o Testify para corrigir gabaritos de múltipla escolha em segundos
+          usando apenas a câmera do seu celular.
+        </p>
+      </div>
+      <div className="mockup-wrap">
+        <div
+          className="phone-mockup"
+          style={{
+            backgroundColor: colors.principalEscura,
+            border: "6px solid #28545a",
+          }}
+        >
           <div
-            className="relative w-72 h-[420px] rounded-3xl p-2 shadow-2xl transition-transform duration-500 hover:scale-105"
-            style={{
-              backgroundColor: colors.principalEscura,
-              border: "6px solid #28545a",
-            }}
+            className="phone-inner"
+            style={{ backgroundColor: colors.textoClaro }}
           >
-            <div
-              className="w-full h-full rounded-2xl flex flex-col justify-center items-center p-4"
-              style={{ backgroundColor: colors.textoClaro }}
+            <Smartphone size={48} style={{ color: colors.desabilitado }} />
+            <p style={{ color: colors.desabilitado, fontWeight: 600 }}>
+              Mock-up do App em Ação
+            </p>
+            <p
+              style={{
+                color: colors.desabilitado,
+                fontSize: ".875rem",
+                textAlign: "center",
+              }}
             >
-              <Smartphone size={48} style={{ color: colors.desabilitado }} />
-              <p
-                className="text-lg font-semibold"
-                style={{ color: colors.desabilitado }}
-              >
-                Mock-up do App em Ação
-              </p>
-              <p
-                className="text-sm text-center"
-                style={{ color: colors.desabilitado }}
-              >
-                (Interface minimalista e intuitiva)
-              </p>
-            </div>
-
-            {/* Notch (estético) */}
-            <div
-              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-2 rounded-b-lg"
-              style={{ backgroundColor: colors.principalEscura }}
-            />
+              (Interface minimalista e intuitiva)
+            </p>
           </div>
+          <div
+            className="notch"
+            style={{ backgroundColor: colors.principalEscura }}
+          />
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 /* -----------------------
    DOWNLOAD
@@ -140,50 +122,37 @@ const Hero = () => {
    - botões responsivos
    ----------------------- */
 const Download = () => {
-  const baseButtonStyle =
-    "flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-bold text-lg transition-transform duration-200 shadow-md";
-
   return (
     <section
       id="download"
-      className="py-12"
+      className="section-download"
       style={{ backgroundColor: colors.principalClara }}
     >
-      <div className="container mx-auto px-6 text-center">
-        <h2
-          className="text-2xl md:text-3xl font-bold mb-8"
-          style={{ color: colors.textoEscuro }}
-        >
+      <div className="container">
+        <h2 className="heading-2" style={{ color: colors.textoEscuro }}>
           Baixe Agora
         </h2>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-3xl mx-auto">
-          {/* Android ativo */}
+        <div className="btns">
           <a
             href="#"
             aria-label="Baixar aplicativo Testify para Android (arquivo .apk)"
-            className={`${baseButtonStyle} w-full sm:w-auto`}
+            className="btn btn-primary"
             style={{
               backgroundColor: colors.principalEscura,
               color: colors.textoClaro,
             }}
           >
-            <Bot size={20} />
-            <span>Baixar para Android (.apk)</span>
+            <Bot size={20} /> <span>Baixar para Android (.apk)</span>
           </a>
-
-          {/* iOS desabilitado */}
           <div
-            className={`${baseButtonStyle} w-full sm:w-auto opacity-70 cursor-not-allowed`}
+            className="btn btn-disabled"
             style={{
               backgroundColor: colors.desabilitado,
               color: colors.textoClaro,
-              boxShadow: "none",
             }}
             aria-disabled="true"
           >
-            <Apple size={20} />
-            <span>Em breve na App Store</span>
+            <Apple size={20} /> <span>Em breve na App Store</span>
           </div>
         </div>
       </div>
@@ -195,9 +164,9 @@ const Download = () => {
    COMPONENTES DO TUTORIAL
    ----------------------- */
 const TutorialStep = ({ icon: Icon, title, description }) => (
-  <div className="flex items-start gap-4 mb-6">
+  <div className="tutorial-step">
     <div
-      className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center shadow"
+      className="icon-circle"
       style={{ backgroundColor: colors.principalEscura }}
     >
       <Icon size={20} style={{ color: colors.textoClaro }} />
@@ -216,102 +185,96 @@ const TutorialStep = ({ icon: Icon, title, description }) => (
   </div>
 );
 
-const Tutorial = () => {
-  return (
-    <section
-      id="tutorial"
-      className="py-12"
-      style={{ backgroundColor: colors.fundo }}
-    >
-      <div className="container mx-auto px-6">
-        <h2
-          className="text-2xl md:text-3xl font-bold text-center mb-8"
-          style={{ color: colors.principalEscura }}
-        >
-          Como Usar
-        </h2>
-
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
-          {/* Vídeo placeholder */}
-          <div>
-            <h3
-              className="text-xl font-bold mb-4"
-              style={{ color: colors.textoEscuro }}
-            >
-              Demonstração em Vídeo
-            </h3>
-
+const Tutorial = () => (
+  <section
+    id="tutorial"
+    className="section"
+    style={{ backgroundColor: colors.fundo }}
+  >
+    <div className="container">
+      <h2
+        className="heading-2"
+        style={{ color: colors.principalEscura, textAlign: "center" }}
+      >
+        Como Usar
+      </h2>
+      <div className="grid-2">
+        <div>
+          <h3
+            style={{
+              color: colors.textoEscuro,
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              marginBottom: "1rem",
+            }}
+          >
+            Demonstração em Vídeo
+          </h3>
+          <div className="video-box" style={{ paddingBottom: "56.25%" }}>
             <div
-              className="relative w-full max-w-xl mx-auto overflow-hidden rounded-xl shadow-xl"
-              style={{ paddingBottom: "56.25%" }} // 16:9
+              className="video-overlay"
+              style={{
+                backgroundColor: colors.desabilitado,
+                color: colors.textoClaro,
+              }}
             >
-              <div
-                className="absolute inset-0 flex flex-col items-center justify-center"
-                style={{
-                  backgroundColor: colors.desabilitado,
-                  color: colors.textoClaro,
-                }}
-              >
-                <BookOpen size={48} />
-                <p className="mt-2 text-lg">Placeholder do Vídeo Tutorial</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Tutorial escrito */}
-          <div>
-            <h3
-              className="text-xl font-bold mb-6"
-              style={{ color: colors.textoEscuro }}
-            >
-              Tutorial Escrito (Para Professores)
-            </h3>
-
-            <div>
-              <TutorialStep
-                icon={CheckSquare}
-                title="Passo 1: Crie o Gabarito."
-                description="Primeiro, informe o título da prova, o número de questões e marque as respostas corretas no app. O Testify gerará um PNG da folha de respostas para você imprimir."
-              />
-              <TutorialStep
-                icon={Printer}
-                title="Passo 2: Aplique a Prova."
-                description="Imprima e distribua a folha de respostas gerada para seus alunos."
-              />
-              <TutorialStep
-                icon={Camera}
-                title="Passo 3: Corrija Instantaneamente."
-                description="Use a câmera do app para escanear as provas preenchidas. O Testify faz a correção na hora e salva os resultados."
-              />
+              <BookOpen size={48} />
+              <p style={{ marginTop: ".5rem", fontSize: "1.125rem" }}>
+                Placeholder do Vídeo Tutorial
+              </p>
             </div>
           </div>
         </div>
+        <div>
+          <h3
+            style={{
+              color: colors.textoEscuro,
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              marginBottom: "1.5rem",
+            }}
+          >
+            Tutorial Escrito (Para Professores)
+          </h3>
+          <TutorialStep
+            icon={CheckSquare}
+            title="Passo 1: Crie o Gabarito."
+            description="Primeiro, informe o título da prova, o número de questões e marque as respostas corretas no app. O Testify gerará um PNG da folha de respostas para você imprimir."
+          />
+          <TutorialStep
+            icon={Printer}
+            title="Passo 2: Aplique a Prova."
+            description="Imprima e distribua a folha de respostas gerada para seus alunos."
+          />
+          <TutorialStep
+            icon={Camera}
+            title="Passo 3: Corrija Instantaneamente."
+            description="Use a câmera do app para escanear as provas preenchidas. O Testify faz a correção na hora e salva os resultados."
+          />
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 /* -----------------------
    FOOTER
    ----------------------- */
-const Footer = () => {
-  return (
-    <footer
-      className="py-6"
-      style={{
-        backgroundColor: colors.principalEscura,
-        color: colors.textoClaro,
-      }}
-    >
-      <div className="container mx-auto px-6 text-center">
-        <p className="text-sm">
-          © {new Date().getFullYear()} Testify - Um Projeto de Extensão
-          UNINASSAU.
-        </p>
-      </div>
-    </footer>
-  );
-};
+const Footer = () => (
+  <footer
+    className="app-footer"
+    style={{
+      backgroundColor: colors.principalEscura,
+      color: colors.textoClaro,
+    }}
+  >
+    <div className="container">
+      <p className="text-sm">
+        © {new Date().getFullYear()} Testify - Um Projeto de Extensão UNINASSAU.
+      </p>
+    </div>
+  </footer>
+);
 
 /* -----------------------
    APP (Principal)
@@ -322,14 +285,9 @@ export const App = () => {
     <>
       <style>{customStyles}</style>
 
-      <div
-        className="font-sans antialiased"
-        style={{ backgroundColor: colors.fundo }}
-      >
+      <div className="app-root" style={{ backgroundColor: colors.fundo }}>
         <Header />
-
-        {/* O main recebe padding-top para não ficar atrás do header fixo */}
-        <main className="pt-20">
+        <main className="main-content">
           <Hero />
           <Download />
           <Tutorial />
