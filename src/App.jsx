@@ -197,7 +197,7 @@ const Download = () => {
 const TutorialStep = ({ icon: Icon, title, description }) => (
   <div className="flex items-start gap-4 mb-6">
     <div
-      className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center shadow"
+      className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center shadow"
       style={{ backgroundColor: colors.principalEscura }}
     >
       <Icon size={20} style={{ color: colors.textoClaro }} />
