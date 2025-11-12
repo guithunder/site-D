@@ -4,5 +4,5 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "devCommand": "vite",
-  "routes": [{ "src": "/(.*)", "dest": "/index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
