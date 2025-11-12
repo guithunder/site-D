@@ -58,34 +58,12 @@ $lg: 1024px; // ~lg
   display: flex;
   align-items: center;
   padding: 0.75rem 0;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-.header-actions {
-  display: flex;
-  gap: 0.75rem;
-}
-.icon-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.5rem;
-  background: rgba(0, 0, 0, 0.06);
-  color: #1f2937;
-  text-decoration: none;
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-.icon-btn:hover {
-  background: rgba(0, 0, 0, 0.12);
-}
-.icon-btn:active {
-  transform: scale(0.94);
 }
 .spin-slow {
   animation: spinSlow 10s linear infinite;

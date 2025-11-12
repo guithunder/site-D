@@ -58,40 +58,6 @@ const Header = () => (
           Testify
         </span>
       </div>
-
-      {/* Ações/links do header */}
-      <nav className="header-actions">
-        <a
-          className="icon-btn"
-          href="https://github.com/guithunder/site-D"
-          target="_blank"
-          rel="noreferrer noopener"
-          aria-label="Código do Site no GitHub"
-          title="Site (GitHub)"
-        >
-          <FaGithub size={20} />
-        </a>
-        <a
-          className="icon-btn"
-          href="https://github.com/LevyTavares/testify_app"
-          target="_blank"
-          rel="noreferrer noopener"
-          aria-label="App (frontend) no GitHub"
-          title="App Frontend (GitHub)"
-        >
-          <FaGithub size={20} />
-        </a>
-        <a
-          className="icon-btn"
-          href="https://github.com/LevyTavares/testify_backend"
-          target="_blank"
-          rel="noreferrer noopener"
-          aria-label="Backend do App no GitHub"
-          title="App Backend (GitHub)"
-        >
-          <FaGithub size={20} />
-        </a>
-      </nav>
     </div>
   </header>
 );
