@@ -9,7 +9,9 @@ import {
   Camera,
   CheckSquare,
   Printer,
+  Link as LinkIcon,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 /* -----------------------
    PALETA DE CORES (JS)
@@ -56,6 +58,40 @@ const Header = () => (
           Testify
         </span>
       </div>
+
+      {/* Ações/links do header */}
+      <nav className="header-actions">
+        <a
+          className="icon-btn"
+          href="https://github.com/guithunder/site-D"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="Código do Site no GitHub"
+          title="Site (GitHub)"
+        >
+          <FaGithub size={20} />
+        </a>
+        <a
+          className="icon-btn"
+          href="https://github.com/LevyTavares/testify_app"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="App (frontend) no GitHub"
+          title="App Frontend (GitHub)"
+        >
+          <FaGithub size={20} />
+        </a>
+        <a
+          className="icon-btn"
+          href="https://github.com/LevyTavares/testify_backend"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="Backend do App no GitHub"
+          title="App Backend (GitHub)"
+        >
+          <FaGithub size={20} />
+        </a>
+      </nav>
     </div>
   </header>
 );
@@ -264,15 +300,56 @@ const Tutorial = () => (
    ----------------------- */
 const Footer = () => (
   <footer
-    className="app-footer"
+    className="app-footer enhanced"
     style={{
       backgroundColor: colors.principalEscura,
       color: colors.textoClaro,
     }}
   >
-    <div className="container">
+    <div className="container footer-grid">
+      <div className="footer-brand">
+        <div className="brand">
+          <Atom className="spin-slow" size={24} />
+          <strong>Testify</strong>
+        </div>
+        <p className="muted">Corrija gabaritos em segundos.</p>
+      </div>
+
+      <nav className="footer-nav">
+        <span className="footer-heading">Navegação</span>
+        <a href="#download">Download</a>
+        <a href="#tutorial">Tutorial</a>
+      </nav>
+
+      <nav className="footer-code">
+        <span className="footer-heading">Código</span>
+        <a
+          href="https://github.com/guithunder/site-D"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <FaGithub size={16} /> <span>Site</span> <LinkIcon size={14} />
+        </a>
+        <a
+          href="https://github.com/LevyTavares/testify_app"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <FaGithub size={16} /> <span>App (Front)</span> <LinkIcon size={14} />
+        </a>
+        <a
+          href="https://github.com/LevyTavares/testify_backend"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <FaGithub size={16} /> <span>App (Back)</span> <LinkIcon size={14} />
+        </a>
+      </nav>
+    </div>
+
+    <div className="container footer-bottom">
       <p className="text-sm">
-        © {new Date().getFullYear()} Testify - Um Projeto de Extensão UNINASSAU.
+        © {new Date().getFullYear()} Testify · Projeto de Extensão UNINASSAU
       </p>
     </div>
   </footer>

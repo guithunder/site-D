@@ -58,11 +58,34 @@ $lg: 1024px; // ~lg
   display: flex;
   align-items: center;
   padding: 0.75rem 0;
+  justify-content: space-between;
 }
 .brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.06);
+  color: #1f2937;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+.icon-btn:active {
+  transform: scale(0.94);
 }
 .spin-slow {
   animation: spinSlow 10s linear infinite;
@@ -296,4 +319,55 @@ $lg: 1024px; // ~lg
 }
 .text-sm {
   font-size: 0.875rem;
+}
+
+/* Footer aprimorado */
+.app-footer.enhanced {
+  text-align: left;
+}
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 1.25rem;
+}
+@media (min-width: $md) {
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.footer-heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.footer-nav a,
+.footer-code a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0.25rem 0;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.footer-nav a:hover,
+.footer-code a:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+  text-align: center;
+}
+.muted {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-top: 0.25rem;
 }
