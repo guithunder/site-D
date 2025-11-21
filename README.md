@@ -1,102 +1,131 @@
 <div align="center">
-	<h1>Testify – Landing Page</h1>
-	<p>Aplicação React + Vite estilizada com Sass (sem Tailwind).</p>
+	<img src="public/favicon.svg" height="90" alt="Logo Testify" />
+	<h1>Testify – Correção Rápida de Gabaritos</h1>
+	<p>Landing page do projeto Testify. Professores geram gabaritos, aplicam provas e corrigem centenas de respostas em segundos usando a câmera do celular.</p>
 </div>
 
-## Tecnologias
+## 📌 Visão Geral
 
-- React 19
-- Vite 7
-- Sass (`.scss`)
-- ESLint 9 (flat config)
-- Lucide Icons
+O Testify reduz drasticamente o tempo gasto na correção de avaliações de múltipla escolha. A landing apresenta proposta, tutorial rápido e download do aplicativo Android.
 
-## Como rodar
+## 🚀 Principais Recursos (App)
+
+- Geração de folha de respostas (PDF/Imagem) pronta para imprimir
+- Correção automática via câmera (reconhecimento de marcações)
+- Armazenamento de resultados / estatísticas básicas (planejado)
+- Interface simples e acessível para uso em sala
+
+## 🧩 Stack da Landing
+
+- React 19 + Vite 7
+- Sass (SCSS) modular – sem Tailwind
+- ESLint 9 (Flat Config)
+- Ícones: Lucide / React Icons
+
+## 📥 Download do APK
+
+Última versão estável: **v1.0.0**
+
+Link direto (GitHub Releases):
+
+```
+https://github.com/guithunder/site-D/releases/download/v1.0.0/TestifyApp.apk
+```
+
+Integridade (SHA256):
+
+```
+fcdf3363e11932759ee45444920a4050dace2ced9d6d42e3762e8feada5bf0ce
+```
+
+> Dica: Professores podem compartilhar este link diretamente com alunos que utilizem dispositivos Android (fora da Play Store nesta fase inicial).
+
+## 🛠 Instalação (Dev)
 
 ```bash
+git clone https://github.com/guithunder/site-D.git
+cd site-D
 npm install
 npm run dev
 ```
 
-Acesse: http://localhost:5173
+Acesse: `http://localhost:5173`
 
-## Build de Produção
+## 🔨 Build de Produção
 
 ```bash
 npm run build
-npm run preview
+npm run preview   # Opcional: servir a pasta dist localmente
 ```
 
 Saída gerada em `dist/`.
 
-## Estrutura principal
+## 📁 Estrutura Essencial
 
 ```
 src/
-	main.jsx         # Ponto de entrada React
-	App.jsx          # Componente principal / seções da landing
-	index.scss       # Estilos globais + utilitários Sass do projeto
+	main.jsx        # Ponto de entrada
+	App.jsx         # Componente principal + seções
+	index.scss      # Estilos globais utilitários
+public/           # Assets estáticos (favicons, etc.)
 ```
 
-Arquivos de configuração relevantes:
+Configuração:
 
 ```
-vite.config.js     # Config padrão Vite + React
-eslint.config.js   # ESLint flat config
-postcss.config.js  # Mantido vazio (plugins: []) para evitar erros de resolução
+vite.config.js    # Vite + plugins
+eslint.config.js  # ESLint flat
+postcss.config.js # Placeholder (sem Tailwind)
 ```
 
-## Estilos com Sass
+## 🎨 Estilos & Convenções
 
-Todos os utilitários que antes vinham do Tailwind foram substituídos por classes semânticas definidas em `src/index.scss`.
-Exemplos de classes disponíveis:
-
-- Layout: `container`, `section`, `section-hero`, `main-content`
-- Header: `app-header`, `header-row`, `brand`, `spin-slow`
-- Hero: `hero-grid`, `mockup-wrap`, `phone-mockup`, `phone-inner`, `notch`
-- Download: `btns`, `btn`, `btn-primary`, `btn-disabled`, `heading-2`
-- Tutorial: `grid-2`, `tutorial-step`, `icon-circle`, `video-box`, `video-overlay`
-- Footer: `app-footer`, `text-sm`
-
-Breakpoints usados (aprox. equivalentes ao sm/md/lg):
+Classes utilitárias foram definidas manualmente em `index.scss` substituindo antigas classes de utilitários. Breakpoints:
 
 ```scss
-$sm: 640px; // sm
-$md: 768px; // md
-$lg: 1024px; // lg
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
 ```
 
-As cores principais continuam centralizadas no objeto `colors` dentro do `App.jsx`. Se preferir, podemos movê-las para variáveis Sass (ex.: `$primary`, `$muted`, etc.) para evitar estilos inline. Posso fazer essa troca em seguida, se quiser.
+Paleta centralizada temporariamente em `App.jsx` (objeto `colors`). Pode ser migrada para variáveis Sass via `:root` ou mapa Sass.
 
-## Nota sobre Tailwind removido
+## ♿ Acessibilidade
 
-- Todas as dependências e diretivas do Tailwind foram removidas. O arquivo `postcss.config.js` permanece no repo apenas com `plugins: []` para o Vite não acusar erro ao procurar uma configuração.
-- Se ainda houver um `tailwind.config.js` antigo no diretório, ele não é mais usado e pode ser apagado com segurança.
+- Texto alternativo e `aria-label` em elementos interativos
+- Contraste testado manualmente
+- Suporte parcial a `prefers-reduced-motion` para animações do hero
 
-## Acessibilidade
+Melhorias planejadas:
 
-- Ícones com propósito semântico e `aria-label` nos botões de download
-- Contraste de cores revisado manualmente
+- Dark mode com CSS custom properties
+- Testes automáticos de acessibilidade (axe / pa11y) em CI
+- Internacionalização (pt-BR / en-US)
 
-Melhorias futuras sugeridas:
+## ✅ Scripts
 
-- Mover as cores para variáveis Sass e habilitar dark mode
-- Adicionar testes de acessibilidade (axe-core) em CI
-- Componentizar seções (ex.: `components/`)
+| Comando           | Função                           |
+| ----------------- | -------------------------------- |
+| `npm run dev`     | Servidor desenvolvimento com HMR |
+| `npm run build`   | Build otimizada produção         |
+| `npm run preview` | Servir build para verificação    |
+| `npm run lint`    | Executar ESLint                  |
 
-## Scripts Disponíveis
+## 🤝 Contribuição
 
-| Comando           | Descrição          |
-| ----------------- | ------------------ |
-| `npm run dev`     | Dev server com HMR |
-| `npm run build`   | Build de produção  |
-| `npm run preview` | Servir build local |
-| `npm run lint`    | Rodar ESLint       |
+1. Abra uma issue descrevendo melhoria ou bug
+2. Faça fork / branch (`feat/nome`, `fix/nome`)
+3. Rode `npm run lint` antes de abrir PR
+4. Adicione descrição clara no Pull Request
 
-## Licença
+## 🔐 Segurança
 
-Projeto acadêmico/exemplo. Ajuste a licença conforme necessário.
+O APK é distribuído fora da Play Store nesta fase inicial. Recomenda-se verificar o hash e instalar somente de fontes confiáveis. Feedback sobre segurança é bem-vindo via issues.
+
+## 📄 Licença
+
+Projeto acadêmico (Extensão UNINASSAU). Licença poderá ser formalizada (MIT / Apache-2.0) em futura versão.
 
 ---
 
-Se quiser que eu mova as cores para Sass e limpe arquivos legados automaticamente, é só pedir.
+Se precisar migrar paleta para variáveis Sass, integrar testes ou automatizar deploy, abra uma issue ou solicite diretamente.
