@@ -115,11 +115,27 @@ const Download = () => {
         <h2 className="heading-2" style={{ color: colors.textoEscuro }}>
           Baixe Agora
         </h2>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "0.9rem",
+            color: colors.textoEscuro,
+            maxWidth: "600px",
+            margin: "0 auto 1.5rem",
+            lineHeight: 1.6,
+          }}
+        >
+          <strong>Nota:</strong> O Google Drive pode exibir um aviso de
+          segurança por ser um arquivo APK grande. Clique em{" "}
+          <strong>"Fazer o download mesmo assim"</strong> para prosseguir com
+          segurança.
+        </p>
         <div className="btns">
           <a
-            href="#"
+            href="https://drive.google.com/uc?export=download&id=1v55Sn2vv1g-IyIl6PkmEUwFH3dv1RIcP"
             aria-label="Baixar aplicativo Testify para Android (arquivo .apk)"
             className="btn btn-primary"
+            download="testify.apk"
             style={{
               backgroundColor: colors.principalEscura,
               color: colors.textoClaro,
