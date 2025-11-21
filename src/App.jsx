@@ -1,5 +1,6 @@
 // src/App.jsx
 import React from "react";
+import heroAttention from "./assets/testify-icon.png";
 import {
   Atom,
   Smartphone,
@@ -67,6 +68,17 @@ const Header = () => (
    - remove min-h-screen; usa padding adequado
    - limita largura do mockup e do conteúdo
    ----------------------- */
+const AnimatedHeroImage = () => (
+  <div className="hero-image-wrap">
+    <img
+      src={heroAttention}
+      alt="Ícone representando educação e correção automática de gabaritos"
+      className="hero-image-attention"
+      draggable={false}
+    />
+  </div>
+);
+
 const Hero = () => (
   <section
     className="section section-hero"
@@ -82,38 +94,7 @@ const Hero = () => (
           usando apenas a câmera do seu celular.
         </p>
       </div>
-      <div className="mockup-wrap">
-        <div
-          className="phone-mockup"
-          style={{
-            backgroundColor: colors.principalEscura,
-            border: "6px solid #28545a",
-          }}
-        >
-          <div
-            className="phone-inner"
-            style={{ backgroundColor: colors.textoClaro }}
-          >
-            <Smartphone size={48} style={{ color: colors.desabilitado }} />
-            <p style={{ color: colors.desabilitado, fontWeight: 600 }}>
-              Mock-up do App em Ação
-            </p>
-            <p
-              style={{
-                color: colors.desabilitado,
-                fontSize: ".875rem",
-                textAlign: "center",
-              }}
-            >
-              (Interface minimalista e intuitiva)
-            </p>
-          </div>
-          <div
-            className="notch"
-            style={{ backgroundColor: colors.principalEscura }}
-          />
-        </div>
-      </div>
+      <AnimatedHeroImage />
     </div>
   </section>
 );
@@ -207,34 +188,6 @@ const Tutorial = () => (
               color: colors.textoEscuro,
               fontSize: "1.25rem",
               fontWeight: 700,
-              marginBottom: "1rem",
-            }}
-          >
-            Demonstração em Vídeo
-          </h3>
-          <div className="video-box" style={{ paddingBottom: "56.25%" }}>
-            <iframe
-              title="Vídeo Tutorial Testify"
-              src="https://www.youtube.com/embed/Q-M8hfX7UUs?si=BYFHhHp6o9idMhHv"
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                border: 0,
-              }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </div>
-        <div>
-          <h3
-            style={{
-              color: colors.textoEscuro,
-              fontSize: "1.25rem",
-              fontWeight: 700,
               marginBottom: "1.5rem",
             }}
           >
@@ -243,17 +196,17 @@ const Tutorial = () => (
           <TutorialStep
             icon={CheckSquare}
             title="Passo 1: Crie o Gabarito."
-            description="Primeiro, informe o título da prova, o número de questões e marque as respostas corretas no app. O Testify gerará um PNG da folha de respostas para você imprimir."
+            description="Informe título da prova, número de questões e marque as alternativas corretas. O Testify gera a folha de respostas para imprimir."
           />
           <TutorialStep
             icon={Printer}
             title="Passo 2: Aplique a Prova."
-            description="Imprima e distribua a folha de respostas gerada para seus alunos."
+            description="Imprima e distribua a folha de respostas para os alunos preencherem."
           />
           <TutorialStep
             icon={Camera}
             title="Passo 3: Corrija Instantaneamente."
-            description="Use a câmera do app para escanear as provas preenchidas. O Testify faz a correção na hora e salva os resultados."
+            description="Escaneie as folhas preenchidas com a câmera do app e obtenha as notas em segundos."
           />
         </div>
       </div>

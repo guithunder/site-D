@@ -25,6 +25,98 @@ $md: 768px; // ~md
 $lg: 1024px; // ~lg
 
 /* Utilidades essenciais que substituem as usadas no JSX */
+/* Hero image (versão 2 sem glitch: uma única animação combinada) */
+.hero-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+@media (min-width: $md) {
+  .hero-image-wrap {
+    justify-content: flex-end;
+  }
+}
+.hero-image-attention {
+  width: clamp(220px, 60%, 380px);
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  border-radius: 1.25rem;
+  position: relative;
+  animation: combinedFloatPulse 6.5s ease-in-out infinite;
+  will-change: transform, filter;
+  cursor: pointer;
+  transition: transform 0.45s ease, filter 0.45s ease;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.06),
+    transparent 72%
+  );
+}
+.hero-image-attention::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(161, 213, 209, 0.6),
+    rgba(161, 213, 209, 0) 70%
+  );
+  animation: ringWave 4.2s ease-in-out infinite;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.hero-image-attention:hover {
+  transform: translateY(-6px) scale(1.15) rotate(3deg);
+  filter: drop-shadow(0 0 32px rgba(161, 213, 209, 0.9)) hue-rotate(12deg)
+    brightness(1.15);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-attention,
+  .hero-image-attention::after {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+@keyframes combinedFloatPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(161, 213, 209, 0.25));
+  }
+  25% {
+    transform: translateY(-10px) scale(1.04);
+    filter: drop-shadow(0 4px 14px rgba(161, 213, 209, 0.55));
+  }
+  50% {
+    transform: translateY(-4px) scale(1.08);
+    filter: drop-shadow(0 6px 28px rgba(161, 213, 209, 0.75)) hue-rotate(8deg);
+  }
+  75% {
+    transform: translateY(-12px) scale(1.05);
+    filter: drop-shadow(0 4px 16px rgba(161, 213, 209, 0.6));
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(161, 213, 209, 0.25));
+  }
+}
+@keyframes ringWave {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.55;
+  }
+  60% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.65);
+    opacity: 0;
+  }
+}
+/* Utilidades essenciais que substituem as usadas no JSX */
 .container {
   width: 100%;
   max-width: $container-max;
@@ -185,6 +277,52 @@ $lg: 1024px; // ~lg
   height: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+
+/* Nova imagem animada do hero */
+.hero-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+@media (min-width: $md) {
+  .hero-image-wrap {
+    justify-content: flex-end;
+  }
+}
+.hero-image-attention {
+  width: clamp(220px, 60%, 380px);
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  animation: pulseGlow 3.5s ease-in-out infinite,
+    floatSoft 8s ease-in-out infinite;
+  will-change: transform, filter;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+.hero-image-attention:hover {
+  transform: scale(1.07) rotate(1deg);
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(161, 213, 209, 0.35));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 14px rgba(161, 213, 209, 0.65));
+  }
+}
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 /* Download */
